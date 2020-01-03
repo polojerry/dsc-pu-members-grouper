@@ -62,5 +62,5 @@ if __name__ == "__main__":
 
     for interest in list_of_area_of_interest:
         divide_members_by_their_selection(sorted_list, interest)
-        group_members(interest, list_of_members)
+        group_members(interest, list_of_members, 5)
         list_of_members = []
