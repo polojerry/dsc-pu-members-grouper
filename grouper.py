@@ -1,6 +1,13 @@
 import csv
 
 list_of_members = []
+area_of_interest = [
+    "Action on Google",
+    "Android Development",
+    "Google Cloud Platform",
+    "Machine Learning and Artificial Intelligence",
+    "Web Development"
+]
 
 
 def csv_reader(csv_file):
@@ -53,5 +60,7 @@ if __name__ == "__main__":
     reader = csv_reader(csv_file_path)
     sorted_list = sorted(reader, key=lambda _row: _row[4], reverse=False)
 
-    divide_multiple_selection(sorted_list, "Web Development")
-    group_members("Android Development", list_of_members, 6)
+    for interest in area_of_interest:
+        divide_multiple_selection(sorted_list, interest)
+        group_members(interest, list_of_members, 6)
+        list_of_members = []
