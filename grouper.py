@@ -1,12 +1,14 @@
 import csv
+import statistics
 
 list_of_members = []
 list_of_area_of_interest = [
     "Action on Google",
     "Android Development",
     "Google Cloud Platform",
-    "Machine Learning and Artificial Intelligence",
-    "Web Development"
+    "Web Development",
+    "Machine Learning and Artificial Intelligence"
+
 ]
 
 
@@ -55,6 +57,10 @@ def group_members(department_name, members_list, group_size):
         group_counter += 1
 
 
+def determine_appropriate_group_size(group_list):
+    return len(statistics.median(group_list))
+
+
 if __name__ == "__main__":
     csv_file_path = "dsc_pu_members_list.csv"
     reader = csv_reader(csv_file_path)
@@ -62,5 +68,6 @@ if __name__ == "__main__":
 
     for interest in list_of_area_of_interest:
         divide_members_by_their_selection(sorted_list, interest)
+        #group_members_size = int(determine_appropriate_group_size(list_of_members))
         group_members(interest, list_of_members, 5)
         list_of_members = []
